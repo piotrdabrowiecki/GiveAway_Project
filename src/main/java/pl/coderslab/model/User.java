@@ -21,11 +21,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+ /*
+
     @NotNull
     private String name;
 
     @NotNull
     private String surname;
+
+*/
 
 
     @Column(unique = true)
@@ -33,19 +37,30 @@ public class User {
     private String login;
 
 
+
     @NotNull
     private String password;
 
 
+    @Column(unique = true)
     @NotNull
     @Email
     private String email;
+
 
 
     @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<Gift> gifts = new ArrayList<>();
 
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public Long getId() {
         return id;
@@ -55,29 +70,6 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
     public String getPassword() {
         return password;
@@ -103,23 +95,16 @@ public class User {
         this.gifts = gifts;
     }
 
-
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", gifts=" + gifts +
                 '}';
     }
-
-
-
-
 
 
 
