@@ -48,28 +48,32 @@
 <section class="login-page">
 
     <h2>Załóż konto</h2>
+
     <form:form modelAttribute = "user" method = "post" >
+
         <div class="form-group">
             <form:input path="email" type="email" name="email"  placeholder="Email" />
             <form:errors path ="email" />
         </div>
 
         <div class="form-group">
-            <form:input path = "login" type="varchar" name="login" placeholder="Podaj login" />
+            <form:input path = "login"  name="login" placeholder="Podaj login" />
             <form:errors path ="login" />
         </div>
 
         <div class="form-group">
-            <form:input path = "password" type="varchar" name="password" placeholder="Hasło" />
+            <form:input path = "password"  name="password" placeholder="Hasło" />
             <form:errors path ="password" />
         </div>
+
+        <%--
 
         <div class="form-group">
-            <form:input path = "password" type="varchar" name="password2" placeholder="Powtórz hasło" />
+            <form:input path = "password"  name="password2" placeholder="Powtórz hasło" />
             <form:errors path ="password" />
         </div>
 
-
+        --%>
 
 
         <div class="form-group form-group--buttons">
@@ -82,6 +86,9 @@
 
      </div>
      </form:form>
+
+
+
 </section>
 
 

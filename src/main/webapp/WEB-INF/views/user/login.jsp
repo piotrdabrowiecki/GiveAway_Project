@@ -49,13 +49,13 @@
 
     <form:form modelAttribute = "user" method = "post" >
 
-        <div class="form-group">       //????????//
-            <form:input path = "login" type = "varchar" name = "login" placeholder = "login" />
+        <div class="form-group">
+            <form:input path = "login" name = "login" placeholder = "login" />
             <form:errors path = "login" />
         </div>
 
         <div class="form-group">
-            <form:input path = "password" type = "password" name = "password" placeholder = "Hasło" />
+            <form:input path = "password"  name = "password" placeholder = "Hasło" />
             <form:errors path ="password" />
             <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>

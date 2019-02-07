@@ -103,6 +103,8 @@ public class LoginController {
         User loginUser = userRepository.findByLogin(login);
 
 
+
+
         if(loginUser != null){
 
 
@@ -111,7 +113,7 @@ public class LoginController {
             boolean passwordCheck = BCrypt.checkpw(password, databasePassword);
 
 
-            if (passwordCheck && !login.startsWith("admin")) {
+            if (passwordCheck  &&  !login.startsWith("admin")) {
 
                 session.setAttribute("login", user.getLogin());
                 session.setAttribute("password", user.getPassword());
@@ -142,7 +144,7 @@ public class LoginController {
         }
 
 
-        return "/user/login";
+       return "/user/login";
 
 
 
