@@ -101,7 +101,8 @@ public class LoginController {
 
 
         User loginUser = userRepository.findByLogin(login);
-
+        loginUser.getId();
+        long id = loginUser.getId();
 
 
 
@@ -115,9 +116,10 @@ public class LoginController {
 
             if (passwordCheck  &&  !login.startsWith("admin")) {
 
-                session.setAttribute("login", user.getLogin());
-                session.setAttribute("password", user.getPassword());
-                session.setAttribute("user", user);
+                request.getSession(true);
+                session.setAttribute("login", loginUser.getLogin());
+                session.setAttribute("password", loginUser.getPassword());
+                session.setAttribute("user", loginUser);
 
 
                 return "redirect:/user/loggedUserView?id=" + loginUser.getId();
@@ -125,9 +127,10 @@ public class LoginController {
             }
             else if (passwordCheck && login.startsWith("admin")) {
 
-                session.setAttribute("login", user.getLogin());
-                session.setAttribute("password", user.getPassword());
-                session.setAttribute("user", user);
+                request.getSession(true);
+                session.setAttribute("login", loginUser.getLogin());
+                session.setAttribute("password", loginUser.getPassword());
+                session.setAttribute("user", loginUser);
 
 
                 return "redirect:/admin/loggedAdminView?id=" + loginUser.getId();
@@ -177,6 +180,7 @@ public class LoginController {
 
 
     }
+
 
 
 

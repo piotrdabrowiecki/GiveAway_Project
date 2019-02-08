@@ -7,6 +7,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
 <html>
 
 <!DOCTYPE html>
@@ -30,8 +31,13 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="/user/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+            <li><a href="/user/login" class="btn btn--small btn--without-border">Zaloguj sie</a></li>
             <li><a href="/user/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            <c:if test="${sessionScope.login != null}">
+
+                <li><a href="/user/loggedUserView?id=${sessionUser.id}" class="btn btn--small btn--highlighted">Twoj profil</a></li>
+
+            </c:if>
         </ul>
 
         <ul>

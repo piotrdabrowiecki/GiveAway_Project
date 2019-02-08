@@ -26,6 +26,7 @@
         <ul class="nav--actions">
 
             <li><a href="/user/logout" class="btn btn--small btn--without-border">Wyloguj sie</a></li>
+            <li><a href="/" class="btn btn--small btn--without-border">Strona glowna</a></li>
 
         </ul>
 

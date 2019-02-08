@@ -1179,6 +1179,23 @@ header nav ul li:last-of-type {
   background-image: url(../images/stats-bg.jpg);
 }
 
+
+.admin {
+  background-image: url(../images/stats-bg.jpg);
+
+}
+
+.adminDivs{
+
+  display: inline;
+  text-align: center;
+  padding: 0 2vw;
+
+
+}
+
+
+
 /* line 4, scss/modules/_stats.scss */
 .stats .container {
   display: -webkit-box;

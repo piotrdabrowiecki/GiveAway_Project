@@ -20,6 +20,28 @@
 </head>
 <body>
 
+<header class="header--main-page">
+
+    <nav class="container container--70">
+        <ul class="nav--actions">
+
+            <li><a href="/user/logout" class="btn btn--small btn--without-border">Wyloguj sie</a></li>
+            <li><a href="/" class="btn btn--small btn--without-border">Strona glowna</a></li>
+
+        </ul>
+
+        <ul>
+
+            <li><a href="/user/editUser?id=${user.id}" class="btn btn--without-border active">Edytuj swoj profil</a></li>
+            <li><a href="/gift/addGift?id=${user.id}" class="btn btn--without-border">Dodaj dary</a></li>
+            <li><a href="/gift/userGifts?id=${user.id}" class="btn btn--without-border">Przegladaj swoje dary</a></li>
+            <li><a href="/institution/institutions" class="btn btn--without-border">Fundacje i organizacje</a></li>
+
+        </ul>
+    </nav>
+
+</header>
+
 
 
 <div class="container">
