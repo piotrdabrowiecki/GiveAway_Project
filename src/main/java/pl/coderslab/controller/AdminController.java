@@ -95,6 +95,25 @@ public class AdminController {
 
 
     }
+    @RequestMapping("/deleteAdmin")
+    public String deleteAdmin(@RequestParam long id){
+
+
+        User deleteUser = userRepository.findOne(id);
+
+
+        if(deleteUser.getLogin().startsWith("admin")){
+
+            userRepository.delete(deleteUser);
+
+
+        }
+
+        return "redirect:/admin/admins";
+
+    }
+
+
 
 
 

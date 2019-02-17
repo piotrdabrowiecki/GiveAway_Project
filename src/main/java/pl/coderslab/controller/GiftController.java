@@ -128,6 +128,30 @@ public class GiftController {
 
 
     }
+    @RequestMapping(value = "/gifts", produces = "text/html; charset=utf-8")
+    public String viewGifts(Model model) {
+
+        List<Gift> gifts = giftRepository.findAll();
+
+        model.addAttribute("gifts", gifts);
+
+        return "/gift/gifts";
+
+
+
+    }
+    @RequestMapping("/deleteGift")
+    public String deleteGift(@RequestParam long id){
+
+
+        Gift deleteGift = giftRepository.findOne(id);
+
+        giftRepository.delete(deleteGift);
+
+
+        return "redirect:/gift/gifts";
+
+    }
 
 
 

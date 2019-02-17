@@ -27,17 +27,10 @@
 
             <li><a href="/user/logout" class="btn btn--small btn--without-border">Wyloguj sie</a></li>
             <li><a href="/" class="btn btn--small btn--without-border">Strona glowna</a></li>
+            <li><c:if test="${user.login.startsWith('admin')}"><a href="/institution/addInstitution" class="btn btn--small btn--without-border">Add new Institution</a></c:if></li>
 
         </ul>
 
-        <ul>
-
-            <li><a href="/user/editUser?id=${user.id}" class="btn btn--without-border active">Edytuj swoj profil</a></li>
-            <li><a href="/gift/addGift?id=${user.id}" class="btn btn--without-border">Dodaj dary</a></li>
-            <li><a href="/gift/userGifts?id=${user.id}" class="btn btn--without-border">Przegladaj swoje dary</a></li>
-            <li><a href="/institution/institutions" class="btn btn--without-border">Fundacje i organizacje</a></li>
-
-        </ul>
     </nav>
 
 </header>
@@ -55,6 +48,9 @@
             <td><b>Miasto</b></td>
             <td><b>Ulica</b></td>
             <td><b>Kod pocztowy</b></td>
+
+            <td><b>Edit Institution Details</b></td>
+            <td><b>delete Institution</b></td>
         <tr>
 
 
@@ -67,6 +63,8 @@
             <td>${institution.city}</td>
             <td>${institution.street}</td>
             <td>${institution.postalCode}</td>
+            <td><a href="/institution/editInstitutionDetails?id=${institution.id}">edit Institution</a></td>
+            <td><a href="/institution/deleteInstitution?id=${institution.id}">delete Institution</a></td>
         </tr>
 
 

@@ -43,40 +43,55 @@
         </ul>
     </nav>
 
+
+    <div class="slogan container container--90 newContainer">
+
+            <form:form modelAttribute = "gift" method = "post" >
+
+                <%--<form:errors path = "*" /> --%>
+
+                <font size="4" face="Courier New" >
+                <div class="form-group">
+
+
+                <b>Nazwa przekazywanego daru</b><br>
+                <form:input path = "name" />
+                <form:errors path ="name" />
+                <br>
+                </div>
+
+                <div class="form-group">
+                <b>Opis:</b><br>
+                <form:input path = "description" />
+                <form:errors path ="description" />
+                <br>
+                </div>
+
+                <div class="form-group">
+                <b>Wybierz instytucje, ktorej chcesz powierzyc ten dar:</b><br>
+                <form:select path="institution" multiple="false">
+                    <form:options items="${institutions}" itemValue ="id" itemLabel="name" />
+                </form:select>
+                <br>
+                </div>
+
+                <div class="form-group">
+                <br>
+                <input type = "submit" value="Dodaj dar" />
+                </div>
+                </font>
+
+            </form:form>
+    </div>
+
+
+
 </header>
+
 
 
 <section class="login-page" >
 
-<form:form modelAttribute = "gift" method = "post" >
-
-    <%--<form:errors path = "*" /> --%>
-
-
-    <td><b>Nazwa przekazywanego daru</b></td>
-    <form:input path = "name" />
-    <form:errors path ="name" />
-    <br>
-
-    <td><b>Opis:</b></td>
-    <form:input path = "description" />
-    <form:errors path ="description" />
-    <br>
-
-    <td><b>Wybierz instytucje, ktorej chcesz powierzyc ten dar:</b></td><br>
-    <form:select path="institution" multiple="false">
-        <form:options items="${institutions}" itemValue ="id" itemLabel="name" />
-    </form:select>
-    <br>
-
-
-    <br>
-    <input type = "submit" value="Dodaj dar" />
-
-
-
-
-</form:form>
 
 
 </section>

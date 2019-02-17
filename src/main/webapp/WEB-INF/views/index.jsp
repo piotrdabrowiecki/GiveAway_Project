@@ -31,8 +31,17 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
+
+            <c:if test="${sessionScope.login == null}">
             <li><a href="/user/login" class="btn btn--small btn--without-border">Zaloguj sie</a></li>
+            </c:if>
+
+            <c:if test="${sessionScope.login != null}">
+                <li><a href="/user/logout" class="btn btn--small btn--without-border">Wyloguj sie</a></li>
+            </c:if>
+
             <li><a href="/user/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+
             <c:if test="${sessionScope.login != null}">
 
                 <li><a href="/user/loggedUserView?id=${sessionUser.id}" class="btn btn--small btn--highlighted">Twoj profil</a></li>
@@ -57,8 +66,21 @@
             </h1>
 
             <ul class="slogan--buttons">
-                <li><a href="#" class="btn btn--large">Oddaj rzeczy</a></li>
-                <li><a href="#" class="btn btn--large">Zorganizuj zbiórkę</a></li>
+
+                <c:if test="${sessionScope.login == null}">
+                <li><a href="/user/login" class="btn btn--large">Oddaj rzeczy</a></li>
+                </c:if>
+                <c:if test="${sessionScope.login != null && !sessionScope.login.startsWith('admin')}">
+                    <li><a href="/user/loggedUserView?id=${sessionUser.id}" class="btn btn--large">Oddaj rzeczy</a></li>
+                </c:if>
+
+                <c:if test="${sessionScope.login == null}">
+                <li><a href="/user/login" class="btn btn--large">Zorganizuj zbiórkę</a></li>
+                </c:if>
+                <c:if test="${sessionScope.login != null && !sessionScope.login.startsWith('admin')}">
+                    <li><a href="/user/loggedUserView?id=${sessionUser.id}" class="btn btn--large">Zorganizuj zbiórkę</a></li>
+                </c:if>
+
             </ul>
         </div>
     </div>

@@ -43,7 +43,7 @@
             <c:if test="${user.login.startsWith('admin')}"><td>${user.email}</td></c:if>
 
             <c:if test="${user.login.startsWith('admin')}"><td><a href="/user/editUser?id=${user.id}">edit Admin</a></td></c:if>
-            <c:if test="${user.login.startsWith('admin')}"><td><a href="/user/deleteUser?id=${user.id}">delete Admin</a></td></c:if></td>
+            <c:if test="${user.login.startsWith('admin')}"><td><a href="/admin/deleteAdmin?id=${user.id}">delete Admin</a></td></c:if></td>
         </tr>
 
         </c:forEach>

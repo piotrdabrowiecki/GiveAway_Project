@@ -112,11 +112,40 @@ public class UserController {
 
 
 
+    }
+    @RequestMapping("/deleteUser")
+    public String deleteUser(@RequestParam long id){
 
+
+        User deleteUser = userRepository.findOne(id);
+
+
+        if(!deleteUser.getLogin().startsWith("admin")){
+
+            userRepository.delete(deleteUser);
+
+
+        }
+
+        return "redirect:/user/users";
+
+    }
+    @RequestMapping(value = "/users", produces = "text/html; charset=utf-8")
+    public String viewUsers(Model model) {
+
+        List<User> users = userRepository.findAll();
+
+        model.addAttribute("users", users);
+
+        return "/user/users";
 
 
 
     }
+
+
+
+
 
 
 
